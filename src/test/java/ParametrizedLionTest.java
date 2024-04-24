@@ -7,6 +7,8 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
 import java.util.List;
+
+import static com.example.constants.StringConstants.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -28,16 +30,16 @@ public class ParametrizedLionTest {
     @Parameterized.Parameters
     public static Object[][] getParameters() {
         return new Object[][] {
-                {Constants.FEMALE, false},
-                {Constants.MALE, true}
+                {FEMALE, false},
+                {MALE, true}
         };
     }
 
     @Test
     public void testGetFoodReturnsMeat() throws Exception {
         Lion lion = new Lion(sex, feline);
-        List<String> expectedFood = Constants.MEAT_FOOD;
-        Mockito.when(feline.getFood("Хищник")).thenReturn(expectedFood);
+        List<String> expectedFood = MEAT_FOOD_LIST;
+        Mockito.when(feline.getFood(PREDATOR)).thenReturn(expectedFood);
         assertEquals(expectedFood, lion.getFood());
     }
 
@@ -50,7 +52,7 @@ public class ParametrizedLionTest {
     @Test
     public void testGetKittensReturnOneKitten() throws Exception {
         Lion lion = new Lion(sex, feline);
-        Mockito.when(feline.getKittens()).thenReturn(1);
-        assertEquals(1, lion.getKittens());
+        Mockito.when(feline.getKittens()).thenReturn(3);
+        assertEquals(3, lion.getKittens());
     }
 }

@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
+import static com.example.constants.StringConstants.MEAT_FOOD_LIST;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -24,7 +25,7 @@ public class CatTest {
     @Test
     public void testGetFoodReturnsMeat() throws Exception {
         Cat cat = new Cat(feline);
-        List<String> expectedFood = Constants.MEAT_FOOD;
+        List<String> expectedFood = MEAT_FOOD_LIST;
         Mockito.when(feline.eatMeat()).thenReturn(expectedFood);
         assertEquals(expectedFood, cat.getFood());
     }
