@@ -2,6 +2,8 @@ package com.example;
 
 import java.util.List;
 
+import static com.example.constants.StringConstants.*;
+
 public class Lion {
 
     private boolean hasMane;
@@ -9,12 +11,12 @@ public class Lion {
 
     public Lion(String sex, Feline feline) throws Exception {
         this.feline = feline;
-        if ("Самец".equals(sex)) {
+        if (MALE.equals(sex)) {
             hasMane = true;
-        } else if ("Самка".equals(sex)) {
+        } else if (FEMALE.equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
+            throw new Exception(UNKNOWN_SEX_VALIDATION_MESSAGE);
         }
     }
 
@@ -27,6 +29,6 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return feline.getFood(PREDATOR);
     }
 }

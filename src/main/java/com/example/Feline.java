@@ -2,11 +2,13 @@ package com.example;
 
 import java.util.List;
 
+import static com.example.constants.StringConstants.PREDATOR;
+
 public class Feline extends Animal implements Predator {
 
     @Override
     public List<String> eatMeat() throws Exception {
-        return getFood("Хищник");
+        return getFood(PREDATOR);
     }
 
     @Override

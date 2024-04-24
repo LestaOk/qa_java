@@ -1,4 +1,3 @@
-import com.example.Cat;
 import com.example.Feline;
 import com.example.LionAlex;
 import org.junit.Test;
@@ -6,11 +5,12 @@ import org.mockito.Mock;
 
 import java.util.List;
 
+import static com.example.constants.StringConstants.NY_ZOO;
 import static org.junit.Assert.assertEquals;
 
 public class LionAlexTest {
     private final List<String> expectedFriends = List.of("Марти", "Глория", "Мелман");
-    private final String expectedPlaceOfLiving = "Нью-Йоркский зоопарк";
+
     @Mock
     private Feline feline;
 
@@ -23,7 +23,7 @@ public class LionAlexTest {
     @Test
     public void testGetPlaceOfLivingReturnsNYZoo() throws Exception {
         LionAlex lionAlex = new LionAlex(feline);
-        assertEquals(expectedPlaceOfLiving, lionAlex.getPlaceOfLiving());
+        assertEquals(NY_ZOO, lionAlex.getPlaceOfLiving());
     }
 
     @Test
